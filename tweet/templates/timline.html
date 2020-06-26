@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+    {% block title %}
+         <title>TIMLINE</title>
+    {% endblock %}
+    
+    {% block body %}
+    <div class="row bg-dark text-white">
+        <div class="col-12 p-3">
+           <span class="ml-5 mr-5"><a href="/tweet">Home</a></span>
+           <span class="ml-5 mr-5"><a href="/viewall">View All Users</a></span>
+           <span class="ml-5 mr-5"><a href="/logout">Logout</a></span>
+           
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-3">
+            <img src="../static/images/IMG_1326.JPG" class="w-50 mx-auto d-block"><br>
+            <a href="/updateprofile/{{login.id}}"><h5 class="text-center">{{login.full_name}}</h5></a>
+        </div>
+        <div class="col-5">
+            <form action="/tweet" method="post" class="mb-3">
+                <h1>TWEET</h1>
+                <!-- <textarea name="say" id="" cols="30" rows="10" class="form-control w-100 mb-2"></textarea> -->
+                <input type="text" name="say" class="form-control w-100 mb-2">
+
+                <input type="submit" value="tweet" class="btn-success btn-block w-100 mb-3 mt-2">
+            </form>
+            <hr>
+
+            {% for u in tweets %}
+                <span class="mb-2">{{u.msg}} </span><br>
+                <a href="/commenttweet/{{u.id}}"><i class="far fa-comments mr-3 text-warning"></i></a>
+                <a href="/updatetweet/{{u.id}}"><i class="fas fa-edit mr-3 text-info"></i></a>
+                
+                <a href="/deletetweet/{{u.id}}"><i class="fas fa-trash text-danger" ></i></a>
+                
+                <hr>
+
+            {% endfor %}
+
+
+            <!-- <h5>Jonathan Doe</h5> <h6>@jonathandoe</h6>
+            <h6>this is anew post</h6><br>
+
+            <i class="fas fa-edit mr-3"></i><i class="fas fa-trash"></i>
+            <hr>
+            <h5>John Doe</h5><h6>@johndoe</h6>
+            <h6>tweet</h6><br>
+            <i class="fas fa-edit mr-3"></i><i class="fas fa-trash"></i> -->
+
+
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+       
+
+    {% endblock %}

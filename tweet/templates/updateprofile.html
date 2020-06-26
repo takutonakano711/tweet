@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body%}
+<div class="row bg-dark text-white">
+    <div class="col-12 p-3">
+       <span class="ml-5 mr-5"><a href="/tweet">Home</a></span>
+       <span class="ml-5 mr-5"><a href="/viewall">View All Users</a></span>
+       <span class="ml-5 mr-5"><a href="/logout">Logout</a></span>
+    </div>
+</div>
+<div class="card text-center mt-5 w-50 mx-auto d-block">
+    <div class="card-header">
+        <h3>UPDATE PROFILE</h3>
+    </div>
+    <div class="card-body">
+     <form action="/updateprofile/{{user.id}}" method="post" class="text-center mb-3">
+
+        <input type="text" name="fname" value="{{user.full_name}}" placeholder="FullName" class="form-control mb-3">
+        <input type="text" name="email" value="{{user.email}}" placeholder="Email" class="form-control mb-3">
+        <input type="password" name="pass" value="{{user.password}}" placeholder="Passworde" class="form-control mb-3">
+
+        <input type="submit" value="Update" class="mx-auto btn-success btn-block w-100 mb-3 mt-3 btn">
+        
+     </form>
+     <a href="/deleteaccount/{{user.id}}"><input type="submit" value="Delete Account" class="mx-auto btn-danger btn-block w-100 mb-3 mt-3 btn"></a>
+    </div>
+</div>
+
+{% endblock %}

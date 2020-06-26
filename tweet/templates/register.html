@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+    {% block title %}
+         <title>Ragister</title>
+    {% endblock %}
+    
+    {% block body %}
+    
+    <div class="jumbotron bg-warning">
+       <h1 class="text-white">REGISTER</h1>
+    </div>
+        <div class="card mx-auto d-block w-50 mt-5">
+            <div class="card-header text-center">
+               <h3>REGISTER HERE</h3>
+            </div>
+            <div class="card-body">
+               <form action="/register" method="post">
+                   <input type="text" name="uname" placeholder="Username" class="form-control mb-3">
+                   <input type="text" name="fname" placeholder="FullName" class="form-control mb-3">
+                   <input type="text" name="email" placeholder="Email" class="form-control mb-3">
+                   <input type="password" name="pass" placeholder="Passworde" class="form-control mb-3">
+                   
+    
+                   <input type="submit" value="Register" class="btn btn-warning btn-block">
+               </form>
+               
+            </div>
+            <div class="card-footer text-center">
+                <h5>Already registered?<a href="/">Click here.</a></h5>
+
+            </div>
+        </div>
+    {% endblock %}

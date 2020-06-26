@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+     <title>Viewall</title>
+{% endblock %}
+
+{% block body %}
+<div class="row bg-dark text-white">
+    <div class="col-12 p-3">
+       <span class="ml-5 mr-5"><a href="/tweet">Home</a></span>
+       <span class="ml-5 mr-5"><a href="/viewall">View All Users</a></span>
+       <span class="ml-5 mr-5"><a href="/logout">Logout</a></span>
+       
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="card  mt-5 mx-auto d-block w-75 ">
+         <div class="card-header text-center">
+            <h1>{{user.full_name}}</h1>
+            <h5>{{user.username}}</h5>
+            
+         </div>
+
+         <div class="card-body">
+            {% for u in tweet %}
+                {{u.msg}}<hr>
+            {% endfor %}
+
+         </div>
+    </div>
+</div>
+      
+   
+{% endblock %}

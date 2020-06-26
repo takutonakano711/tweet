@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+     <title>Viewall</title>
+{% endblock %}
+
+{% block body %}
+  <div class="row bg-dark text-white">
+    <div class="col-12 p-3">
+       <span class="ml-5 mr-5"><a href="/tweet">Home</a></span>
+       <span class="ml-5 mr-5"><a href="/viewall">View All Users</a></span>
+       <span class="ml-5 mr-5"><a href="/logout">Logout</a></span>
+       
+    </div>
+  </div>
+ <div class="container">
+     <h1 class="mt-5">View User</h1>
+
+
+     {% if users|length < 1 %}
+
+     <h3 class="text-danger">Zero</h3>
+     {% else %}
+
+     <table class="table table-striped">
+         <tr>
+             <th>User ID</th>
+             <th>Username</th>
+             <th>FullName</th>
+             <th>Email</th>
+         </tr>
+         {% for u in users %}
+           <tr>
+               <td>{{u.id}}</td>
+               <td><a href="/viewuser/{{u.id}}">{{u.username}}</a></td>
+               <td>{{u.full_name}}</td>
+               <td>{{u.email}}</td>
+               
+           </tr>
+        {% endfor %}
+     </table>
+     {% endif %}
+ </div>
+      
+   
+{% endblock %}
